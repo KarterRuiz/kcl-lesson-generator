@@ -1,0 +1,90 @@
+/* src/components/TaskCardsPage.css */
+
+.tc-page {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 16px 20px 20px;
+  background: #ffffff;
+  border: 2px solid #333;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+/* Tiny header strip at top */
+
+.tc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 11px;
+  margin-bottom: 8px;
+}
+
+.tc-header-title {
+  font-weight: 600;
+}
+
+.tc-header-meta {
+  color: #666;
+}
+
+/* 4-card grid */
+
+.tc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 10px;
+  height: 100%;
+}
+
+/* Individual card */
+
+.tc-card {
+  border: 1.8px solid #000;
+  border-radius: 10px;
+  padding: 6px;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.tc-card-inner {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card number banner */
+
+.tc-card-number {
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 4px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Prompt text */
+
+.tc-card-prompt {
+  font-size: 13px;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+/* Print tweaks */
+
+@media print {
+  .tc-page {
+    max-width: none;
+    border-width: 1.5px;
+  }
+}

@@ -1,0 +1,55 @@
+/* src/components/AnswerKeyPage.css */
+
+.ak-wrapper {
+  padding: 8px 0;
+}
+
+.ak-header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.ak-title {
+  margin: 0;
+  font-size: 22px;
+}
+
+.ak-meta {
+  margin: 4px 0 0;
+  color: #555;
+  font-size: 13px;
+}
+
+.ak-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ak-section {
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: #fafafa;
+}
+
+.ak-section-title {
+  margin: 0 0 6px;
+  font-size: 16px;
+  color: #1f3a93;
+}
+
+.ak-answers {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 4px;
+  font-size: 13px;
+}
+
+.ak-placeholder {
+  text-align: center;
+  color: #666;
+  margin-top: 16px;
+  font-size: 14px;
+}

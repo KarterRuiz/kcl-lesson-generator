@@ -1,0 +1,333 @@
+:root {
+  --navy: #1f3a93;
+  --blue: #4a90e2;
+  --teal: #1abc9c;
+  --gray-light: #f5f5f7;
+  --gray-border: #d9d9d9;
+  --text-main: #333333;
+  --radius-card: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #ffffff;
+  color: var(--text-main);
+}
+
+/* App container */
+.app-root {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+/* ---------- Existing KCL UI styles ---------- */
+
+.app-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.app-header h1 {
+  margin: 0;
+  color: var(--navy);
+}
+
+.tagline {
+  margin-top: 8px;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.section-title {
+  margin: 0 0 4px;
+  color: var(--navy);
+}
+
+.section-subtitle {
+  margin: 0 0 16px;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* Grade grid on homepage */
+.grade-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.grade-card {
+  border: 1px solid var(--gray-border);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  background: #fff;
+  cursor: pointer;
+  text-align: left;
+  transition: box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+.grade-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.grade-label {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.grade-subjects {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Back link */
+.link-button {
+  border: none;
+  background: none;
+  color: var(--blue);
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+/* Subject tabs (Math / ELA) */
+.subject-tabs {
+  display: inline-flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.subject-tab {
+  border-radius: 999px;
+  border: 1px solid var(--gray-border);
+  padding: 6px 14px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.subject-tab--active {
+  background: var(--blue);
+  color: white;
+  border-color: var(--blue);
+}
+
+/* Unit accordions */
+
+.unit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.unit-card {
+  border-radius: var(--radius-card);
+  border: 1px solid var(--gray-border);
+  background: var(--gray-light);
+  padding: 8px;
+}
+
+.unit-header {
+  width: 100%;
+  border: none;
+  background: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 6px 4px;
+}
+
+.unit-title {
+  font-weight: 600;
+}
+
+.unit-meta {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.unit-arrow {
+  font-size: 1rem;
+}
+
+/* Lessons list */
+
+.lesson-list {
+  list-style: none;
+  padding: 8px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lesson-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  padding: 8px 10px;
+}
+
+.lesson-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.lesson-standards {
+  font-size: 0.75rem;
+  color: #777;
+}
+
+/* Buttons */
+
+.primary-button {
+  border-radius: 999px;
+  border: none;
+  background: var(--navy);
+  color: white;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.primary-button:hover {
+  background: var(--blue);
+}
+
+/* Lesson header card on generator page */
+
+.lesson-header-card {
+  margin-top: 8px;
+  margin-bottom: 16px;
+  padding: 12px;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--gray-border);
+  background: var(--gray-light);
+}
+
+.lesson-header-main {
+  font-weight: 600;
+}
+
+.lesson-header-standards {
+  font-size: 0.8rem;
+  color: #555;
+  margin-top: 4px;
+}
+
+/* Material selector */
+
+.material-section {
+  margin-bottom: 20px;
+}
+
+.helper-text {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.material-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.material-chip {
+  border-radius: 999px;
+  border: 1px solid var(--gray-border);
+  padding: 6px 12px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.material-chip--active {
+  background: var(--teal);
+  color: white;
+  border-color: var(--teal);
+}
+
+/* Prompt box */
+
+.prompt-section {
+  margin-top: 16px;
+}
+
+.prompt-textarea {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--gray-border);
+  padding: 10px;
+  font-family: "Menlo", "SFMono-Regular", ui-monospace, monospace;
+  font-size: 0.85rem;
+  resize: vertical;
+}
+
+/* ---------- NEW: NotesPage toolbar + print layout ---------- */
+
+.app-toolbar {
+  margin-bottom: 8px;
+}
+
+.app-print-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--navy);
+  background: var(--navy);
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.app-print-btn:hover {
+  background: var(--blue);
+}
+
+.app-page-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.app-placeholder {
+  padding: 24px;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Print styles: hide toolbar & remove outer padding when printing */
+
+@media print {
+  .app-toolbar {
+    display: none;
+  }
+
+  body {
+    margin: 0;
+    background: white;
+  }
+
+  #root {
+    margin: 0;
+  }
+
+  .app-root {
+    max-width: none;
+    padding: 0;
+  }
+}
