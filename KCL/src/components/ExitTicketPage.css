@@ -1,0 +1,108 @@
+/* src/components/ExitTicketPage.css */
+
+.et-page {
+  width: 100%;
+  max-width: 700px;
+  margin: 12px auto;
+  padding: 16px 20px;
+  background: #ffffff;
+  border: 2px solid #333;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+/* Meta row */
+
+.et-meta-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.et-meta-field {
+  border: 1px solid #999;
+  border-radius: 4px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  font-size: 12px;
+}
+
+.et-meta-label {
+  font-weight: 600;
+}
+
+/* Title */
+
+.et-title-block {
+  margin-bottom: 8px;
+}
+
+.et-title {
+  font-size: 18px;
+  margin: 0;
+}
+
+.et-subtitle {
+  font-size: 12px;
+  margin: 2px 0 0;
+  color: #555;
+}
+
+/* Directions */
+
+.et-directions {
+  margin: 6px 0 10px;
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  padding: 6px 8px;
+  font-size: 12px;
+  background: #f7f7f7;
+}
+
+.et-directions-label {
+  font-weight: 700;
+}
+
+.et-directions-text {
+  margin-left: 4px;
+}
+
+/* Prompts */
+
+.et-prompts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.et-prompt {
+  padding: 4px 0 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.et-prompt-text {
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.et-prompt-number {
+  font-weight: 600;
+}
+
+/* Work lines */
+
+.et-work-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.et-work-line {
+  border-bottom: 1px dotted #ccc;
+  height: 11px;
+}
