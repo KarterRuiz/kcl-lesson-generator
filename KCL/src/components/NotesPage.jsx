@@ -2,19 +2,6 @@
 import React from "react";
 import "./NotesPage.css";
 
-/**
- * KCL Notes Page Template
- * -------------------------------------------------
- * This mirrors your landscape Cornell-style notes:
- * - Header row: Name / Date / Class
- * - Word bank strip
- * - Left column: Main Ideas / Questions
- * - Right column: Notes / Examples
- *
- * All content is passed in via props so later an AI
- * backend can fill these slots automatically.
- */
-
 function NotesPage({
   lessonTitle = "What is Place Value?",
   grade = "Grade 3",
@@ -25,20 +12,15 @@ function NotesPage({
 }) {
   return (
     <div className="npc-page">
-      {/* Top meta bar */}
       <header className="npc-meta-row">
-        <div className="npc-meta-field">
-          <span className="npc-meta-label">Name:</span>
-        </div>
-        <div className="npc-meta-field">
-          <span className="npc-meta-label">Date:</span>
-        </div>
-        <div className="npc-meta-field">
-          <span className="npc-meta-label">Class:</span>
-        </div>
+        {["Name", "Date", "Class"].map((label) => (
+          <div key={label} className="npc-meta-field">
+            <span className="npc-meta-label">{label}:</span>
+            <span className="npc-meta-line" aria-hidden="true" />
+          </div>
+        ))}
       </header>
 
-      {/* Title + standards row */}
       <div className="npc-title-row">
         <div>
           <h1 className="npc-lesson-title">{lessonTitle}</h1>
@@ -48,56 +30,78 @@ function NotesPage({
         </div>
       </div>
 
-      {/* Word bank */}
       <div className="npc-wordbank-row">
         <span className="npc-wordbank-label">word bank:</span>
         <div className="npc-wordbank-items">
-          {wordBank.map((word) => (
-            <span key={word} className="npc-wordbank-item">
-              {word}
-            </span>
-          ))}
+          {wordBank.length > 0 ? (
+            wordBank.map((word) => (
+              <span key={word} className="npc-wordbank-item">
+                {word}
+              </span>
+            ))
+          ) : (
+            <span className="npc-wordbank-placeholder">Add vocabulary here</span>
+          )}
         </div>
       </div>
 
-      {/* Two-column Cornell layout */}
-      <div className="npc-main-grid">
-        {/* Left column: main ideas / questions */}
-        <div className="npc-left-column">
-          <div className="npc-column-header">Main Ideas / Questions</div>
-          <ul className="npc-main-idea-list">
+      <div className="npc-main-grid" role="table" aria-label="Cornell notes layout">
+        <div className="npc-grid-header" role="rowgroup">
+          <div className="npc-grid-cell npc-grid-label" role="columnheader">
+            Main Ideas / Questions
+          </div>
+          <div className="npc-grid-cell npc-grid-label" role="columnheader">
+            Notes / Examples
+          </div>
+        </div>
+
+        <div className="npc-grid-body" role="rowgroup">
+          <div className="npc-left-column" role="row">
+            <ul className="npc-main-idea-list">
+              {sections.map((sec, idx) => (
+                <li key={idx} className="npc-main-idea-item">
+                  <span className="npc-main-idea-index">{idx + 1}.</span>
+                  <span className="npc-main-idea-text">{sec.prompt}</span>
+                </li>
+              ))}
+              {sections.length === 0 && (
+                <li className="npc-main-idea-item npc-main-idea-empty">
+                  Add prompts for students to consider.
+                </li>
+              )}
+            </ul>
+          </div>
+
+          <div className="npc-right-column" role="row">
             {sections.map((sec, idx) => (
-              <li key={idx} className="npc-main-idea-item">
-                {sec.prompt}
-              </li>
+              <section key={idx} className="npc-section">
+                {sec.heading && (
+                  <div className="npc-section-heading">
+                    <span className="npc-section-index">{idx + 1}</span>
+                    <span className="npc-section-title">{sec.heading}</span>
+                  </div>
+                )}
+                {sec.body && <p className="npc-section-body">{sec.body}</p>}
+                {sec.examples && sec.examples.length > 0 && (
+                  <ul className="npc-examples-list">
+                    {sec.examples.map((ex, i) => (
+                      <li key={i}>{ex}</li>
+                    ))}
+                  </ul>
+                )}
+              </section>
             ))}
-          </ul>
-        </div>
-
-        {/* Right column: notes / examples */}
-        <div className="npc-right-column">
-          <div className="npc-column-header">Notes / Examples</div>
-          {sections.map((sec, idx) => (
-            <section key={idx} className="npc-section">
-              {sec.heading && (
-                <h2 className="npc-section-heading">{sec.heading}</h2>
-              )}
-              {sec.body && <p className="npc-section-body">{sec.body}</p>}
-              {sec.examples && sec.examples.length > 0 && (
-                <ul className="npc-examples-list">
-                  {sec.examples.map((ex, i) => (
-                    <li key={i}>{ex}</li>
-                  ))}
-                </ul>
-              )}
-            </section>
-          ))}
+            {sections.length === 0 && (
+              <div className="npc-section npc-section-empty">
+                Start adding lesson content, definitions, or worked examples.
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* Reflection / summary row at bottom */}
       <footer className="npc-reflection-row">
-        <div className="npc-reflection-label">Summary / Reflection:</div>
+        <div className="npc-reflection-label">Summary / Reflection</div>
         <div className="npc-reflection-prompt">{reflectionPrompt}</div>
       </footer>
     </div>
