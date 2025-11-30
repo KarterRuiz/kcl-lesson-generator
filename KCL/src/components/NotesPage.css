@@ -2,15 +2,16 @@
 
 .npc-page {
   width: 100%;
-  max-width: 1100px; /* landscape-ish US Letter */
+  max-width: 1100px;
   margin: 12px auto;
-  padding: 16px 20px;
+  padding: 18px 22px 20px;
   background: #ffffff;
-  border: 2px solid #333;
-  border-radius: 8px;
+  border: 2px solid #1f1f1f;
+  border-radius: 10px;
   box-sizing: border-box;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont,
     sans-serif;
+  color: #111;
 }
 
 /* Top meta bar */
@@ -18,42 +19,56 @@
 .npc-meta-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  margin-bottom: 8px;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 .npc-meta-field {
-  border: 1px solid #999;
-  border-radius: 4px;
-  height: 28px;
+  border: 1.5px solid #444;
+  border-radius: 6px;
+  height: 32px;
   display: flex;
   align-items: center;
-  padding: 0 6px;
-  font-size: 12px;
+  gap: 8px;
+  padding: 0 10px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #fafafa;
 }
 
 .npc-meta-label {
-  font-weight: 600;
+  text-transform: none;
+}
+
+.npc-meta-line {
+  flex: 1;
+  border-bottom: 1px dotted #666;
+  height: 12px;
 }
 
 /* Title row */
 
 .npc-title-row {
   display: flex;
-  justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 6px;
+  justify-content: space-between;
+  padding: 6px 4px;
+  margin-bottom: 8px;
+  border-bottom: 1.5px solid #222;
 }
 
 .npc-lesson-title {
-  font-size: 18px;
+  font-size: 22px;
   margin: 0;
+  font-weight: 800;
+  letter-spacing: 0.01em;
 }
 
 .npc-lesson-subtitle {
-  font-size: 12px;
-  margin: 2px 0 0;
-  color: #555;
+  font-size: 13px;
+  margin: 3px 0 0;
+  color: #333;
+  font-weight: 600;
 }
 
 /* Word bank */
@@ -61,114 +76,230 @@
 .npc-wordbank-row {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin: 10px 0 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 6px 8px;
-  background: #f7f7f7;
+  gap: 10px;
+  margin: 12px 0 14px;
+  border: 1.5px solid #444;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #f5f5f5;
 }
 
 .npc-wordbank-label {
   font-size: 12px;
   text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-weight: 800;
+  letter-spacing: 0.08em;
 }
 
 .npc-wordbank-items {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
+  row-gap: 6px;
 }
 
 .npc-wordbank-item {
   border-radius: 999px;
-  border: 1px solid #aaa;
-  padding: 2px 8px;
-  font-size: 11px;
+  border: 1.5px solid #888;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  background: #fff;
+}
+
+.npc-wordbank-placeholder {
+  font-size: 12px;
+  color: #777;
+  font-style: italic;
 }
 
 /* Main Cornell grid */
 
 .npc-main-grid {
   display: grid;
-  grid-template-columns: 30% 70%;
-  gap: 10px;
-  min-height: 340px;
+  grid-template-columns: 35% 65%;
+  grid-template-rows: auto 1fr;
+  gap: 0;
+  border: 1.5px solid #222;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 380px;
+}
+
+.npc-grid-header {
+  display: contents;
+}
+
+.npc-grid-body {
+  display: contents;
+}
+
+.npc-grid-cell {
+  border-bottom: 1.5px solid #222;
+  background: #f0f0f0;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.npc-grid-cell:first-of-type {
+  border-right: 1.5px solid #e0e0e0;
 }
 
 .npc-left-column,
 .npc-right-column {
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 8px;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+  padding: 12px;
+  background: #fff;
 }
 
-.npc-column-header {
-  font-size: 12px;
-  font-weight: 700;
-  margin-bottom: 4px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 2px;
+.npc-left-column {
+  border-right: 1.5px solid #e0e0e0;
 }
 
 /* Left column: prompts */
 
 .npc-main-idea-list {
-  list-style: disc;
-  padding-left: 18px;
-  margin: 4px 0 0;
-  font-size: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 13px;
 }
 
 .npc-main-idea-item {
-  margin-bottom: 6px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 10px 10px 12px;
+  border: 1px solid #d7d7d7;
+  border-radius: 10px;
+  background: #fbfbfb;
+  min-height: 48px;
+}
+
+.npc-main-idea-index {
+  font-weight: 800;
+  color: #c65f00;
+  min-width: 18px;
+}
+
+.npc-main-idea-text {
+  flex: 1;
+}
+
+.npc-main-idea-empty {
+  color: #777;
+  font-style: italic;
+  justify-content: center;
 }
 
 /* Right column: sections */
 
 .npc-section {
-  margin-top: 6px;
+  border: 1px solid #d7d7d7;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #fafafa;
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.03);
+}
+
+.npc-section + .npc-section {
+  margin-top: 12px;
 }
 
 .npc-section-heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffe7c4;
+  border: 1px solid #f2c07b;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-weight: 800;
+  color: #6f3b00;
+  margin-bottom: 8px;
+}
+
+.npc-section-index {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff9f2e;
+  color: #000;
   font-size: 12px;
-  font-weight: 700;
-  margin: 4px 0 2px;
+  border: 1px solid #d87a0d;
+}
+
+.npc-section-title {
+  font-size: 13px;
 }
 
 .npc-section-body {
-  font-size: 12px;
-  margin: 0 0 3px;
+  font-size: 13px;
+  margin: 6px 0;
+  line-height: 1.4;
 }
 
 .npc-examples-list {
   padding-left: 18px;
-  margin: 0 0 4px;
-  font-size: 12px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.npc-section-empty {
+  color: #777;
+  font-style: italic;
+  text-align: center;
 }
 
 /* Reflection footer */
 
 .npc-reflection-row {
-  margin-top: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 6px 8px 24px;
-  font-size: 12px;
+  margin-top: 14px;
+  border: 1.5px solid #222;
+  border-radius: 10px;
+  padding: 10px 12px 18px;
+  font-size: 13px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
+  background: #f7f7f7;
 }
 
 .npc-reflection-label {
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: 0.02em;
 }
 
 .npc-reflection-prompt {
-  color: #444;
+  color: #333;
+}
+
+@media print {
+  .npc-page {
+    margin: 0 auto;
+    border-color: #000;
+    box-shadow: none;
+    max-width: 100%;
+  }
+
+  .npc-wordbank-row,
+  .npc-section,
+  .npc-reflection-row,
+  .npc-main-idea-item {
+    background: #fff;
+    box-shadow: none;
+  }
+
+  .npc-section-heading {
+    background: #fff3df;
+  }
 }
